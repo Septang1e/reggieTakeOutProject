@@ -1,0 +1,23 @@
+#配置服务器
+server:
+  port: 8080
+#配置spring框架
+spring:
+  application:
+    name: reggie_take_out #应用名称
+  datasource: #数据源
+    druid:  #Druid数据源
+      driver-class-name: com.mysql.cj.jdbc.Driver #数据库驱动
+      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true #数据源地址
+      username: root  #用户名
+      password: Eaib1b0402a7fe7   #密码
+
+#配置mybatis-plus插件
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true  #将字段名映射成实体属性时，转换下划线，按
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #日志实现类
+  global-config:  #全局配置
+    db-config:  #数据库配置
+      id-type: auto  #数据库ID自增
