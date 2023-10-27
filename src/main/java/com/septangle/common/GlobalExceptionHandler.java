@@ -28,8 +28,8 @@ public class GlobalExceptionHandler {
         log.error(ex.getMessage());
         if(ex.getMessage().contains("Duplicate entry"))
         {
-            return R.error("用户"+split(ex.getMessage())[2]+"已存在");
+            return R.error(split(ex.getMessage())[2]+"已存在");
         }
-        return R.error("添加用户失败");
+        return R.error("添加失败");
     }
 }

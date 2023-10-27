@@ -1,7 +1,9 @@
 package com.septangle.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,6 +15,7 @@ public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value= "id" ,type= IdType.ASSIGN_ID)
     private Long id;
 
     private String username;
@@ -29,8 +32,10 @@ public class Employee implements Serializable {
 
     private Integer status;
 
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     @TableField(fill = FieldFill.INSERT)
